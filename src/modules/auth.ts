@@ -12,7 +12,7 @@ export const hashPassword = async (password) => {
 }
 
 export const createJWT = async (user) => {
-  const token = await jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET);
+  const token = await jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: "8h" });
   return token;
 }
 
